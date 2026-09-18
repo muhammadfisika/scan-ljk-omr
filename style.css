@@ -1,1 +1,276 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef4fb;
+  color: #1f2937;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: #1565c0;
+  color: white;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.header p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.logout-btn {
+  border: none;
+  background: white;
+  color: #1565c0;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.page {
+  max-width: 900px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.login-card {
+  max-width: 430px;
+  margin: 50px auto;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 25px;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+button {
+  font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn {
+  width: 100%;
+  border: none;
+  padding: 13px;
+  margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.primary-btn {
+  background: #1565c0;
+  color: white;
+}
+
+.secondary-btn {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.back-btn {
+  border: none;
+  background: transparent;
+  color: #1565c0;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  );
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.menu-btn {
+  min-height: 120px;
+  border: none;
+  border-radius: 12px;
+  background: #f1f7ff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #1565c0;
+}
+
+.menu-btn span {
+  font-size: 32px;
+}
+
+.menu-btn b {
+  font-size: 15px;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.exam-item {
+  border: 1px solid #dbe3ed;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.exam-item h3 {
+  margin: 0 0 8px;
+}
+
+.exam-item button {
+  margin-top: 10px;
+}
+
+.selected-info {
+  background: #f1f7ff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.camera-placeholder {
+  min-height: 230px;
+  border: 2px dashed #9fb4ca;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.camera-icon {
+  font-size: 60px;
+}
+
+.student-result {
+  margin-top: 15px;
+}
+
+.student-card {
+  background: #edf7ed;
+  border: 1px solid #b7dfb7;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.student-error {
+  background: #fff1f1;
+  color: #b91c1c;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.scan-result {
+  margin-top: 20px;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.result-table th {
+  background: #f1f5f9;
+}
+
+.correct {
+  color: #15803d;
+  font-weight: bold;
+}
+
+.wrong {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+.empty {
+  color: #ca8a04;
+  font-weight: bold;
+}
+
+.rekap-table-wrapper {
+  overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+
+  .page {
+    padding: 15px 10px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+}
