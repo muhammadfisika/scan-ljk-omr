@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#1565c0">
+
+  <meta name="description"
+        content="Aplikasi Scan Lembar Jawaban Komputer">
+
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet"
+        href="style.css">
+
+  <title>Scan LJK OMR</title>
+
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="header">
+
+    <div>
+
+      <h1>SCAN LJK</h1>
+
+      <p>
+        SMA NEGERI 2 RANGKASBITUNG
+      </p>
+
+    </div>
+
+    <button
+      id="logoutBtn"
+      class="logout-btn"
+      onclick="logout()"
+      style="display:none">
+
+      Keluar
+
+    </button>
+
+  </header>
+
+
+  <!-- =========================================
+       LOGIN
+  ========================================== -->
+
+  <section
+    id="loginPage"
+    class="page">
+
+    <div class="card login-card">
+
+      <h2>Login</h2>
+
+      <p class="muted">
+        Silakan masuk untuk menggunakan aplikasi.
+      </p>
+
+      <label>Username</label>
+
+      <input
+        id="username"
+        type="text"
+        placeholder="Username">
+
+      <label>Password</label>
+
+      <input
+        id="password"
+        type="password"
+        placeholder="Password">
+
+      <button
+        class="primary-btn"
+        onclick="login()">
+
+        LOGIN
+
+      </button>
+
+      <div
+        id="loginMessage"
+        class="message">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       DASHBOARD
+  ========================================== -->
+
+  <section
+    id="dashboardPage"
+    class="page"
+    style="display:none">
+
+    <div class="card">
+
+      <h2>Dashboard</h2>
+
+      <p>
+        Selamat datang,
+        <strong id="userName"></strong>
+      </p>
+
+      <div class="menu-grid">
+
+        <button
+          onclick="showPage('ujianPage')"
+          class="menu-btn">
+
+          <span>📝</span>
+          <b>Data Ujian</b>
+
+        </button>
+
+        <button
+          onclick="showPage('scanPage')"
+          class="menu-btn">
+
+          <span>📷</span>
+          <b>Scan LJK</b>
+
+        </button>
+
+        <button
+          onclick="loadRekap()"
+          class="menu-btn">
+
+          <span>📊</span>
+          <b>Rekap Nilai</b>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       DATA UJIAN
+  ========================================== -->
+
+  <section
+    id="ujianPage"
+    class="page"
+    style="display:none">
+
+    <div class="card">
+
+      <button
+        class="back-btn"
+        onclick="showPage('dashboardPage')">
+
+        ← Kembali
+
+      </button>
+
+      <h2>Pilih Ujian</h2>
+
+      <div id="ujianList">
+
+        <p class="muted">
+          Memuat data ujian...
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       SCAN PAGE
+  ========================================== -->
+
+  <section
+    id="scanPage"
+    class="page"
+    style="display:none">
+
+    <div class="card">
+
+      <button
+        class="back-btn"
+        onclick="showPage('dashboardPage')">
+
+        ← Kembali
+
+      </button>
+
+      <h2>Scan LJK</h2>
+
+      <div class="selected-info">
+
+        <div>
+          Ujian:
+          <strong id="selectedExam">
+            Belum dipilih
+          </strong>
+        </div>
+
+        <div>
+          ID:
+          <strong id="selectedExamId">
+            -
+          </strong>
+        </div>
+
+      </div>
+
+
+      <!-- QR SISWA -->
+
+      <h3>1. Identitas Siswa</h3>
+
+      <input
+        id="qrInput"
+        type="text"
+        placeholder="Masukkan kode QR, contoh S001">
+
+      <button
+        class="secondary-btn"
+        onclick="cariSiswa()">
+
+        Cari Siswa
+
+      </button>
+
+      <div
+        id="studentResult"
+        class="student-result">
+      </div>
+
+
+      <!-- AREA SCANNER -->
+
+      <h3>2. Lembar Jawaban</h3>
+
+      <div class="camera-placeholder">
+
+        <div class="camera-icon">
+          📷
+        </div>
+
+        <p>
+          Scanner OMR akan ditempatkan di sini
+          pada Tahap 4.
+        </p>
+
+        <p class="muted">
+          Untuk pengujian Tahap 3,
+          gunakan tombol simulasi.
+        </p>
+
+      </div>
+
+
+      <!-- SIMULASI -->
+
+      <button
+        class="primary-btn"
+        onclick="simulasiScan()">
+
+        SIMULASI HASIL SCAN
+
+      </button>
+
+
+      <div
+        id="scanResult"
+        class="scan-result">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       REKAP
+  ========================================== -->
+
+  <section
+    id="rekapPage"
+    class="page"
+    style="display:none">
+
+    <div class="card">
+
+      <button
+        class="back-btn"
+        onclick="showPage('dashboardPage')">
+
+        ← Kembali
+
+      </button>
+
+      <h2>Rekap Nilai</h2>
+
+      <div
+        id="rekapContainer">
+
+        <p class="muted">
+          Memuat data...
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<script src="app.js"></script>
+
+<script>
+
+  if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function() {
+
+      navigator.serviceWorker
+        .register("sw.js")
+        .catch(function(error) {
+
+          console.log(
+            "Service Worker gagal:",
+            error
+          );
+
+        });
+
+    });
+
+  }
+
+</script>
+
+</body>
+
+</html>
