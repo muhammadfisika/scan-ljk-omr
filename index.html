@@ -258,24 +258,80 @@
 
       <h3>2. Lembar Jawaban</h3>
 
-      <div class="camera-placeholder">
+      <!-- =========================================
+     SCANNER OMR
+========================================== -->
 
-        <div class="camera-icon">
-          📷
-        </div>
+<h3>2. Scanner LJK</h3>
 
-        <p>
-          Scanner OMR akan ditempatkan di sini
-          pada Tahap 4.
-        </p>
+<div class="scanner-container">
 
-        <p class="muted">
-          Untuk pengujian Tahap 3,
-          gunakan tombol simulasi.
-        </p>
+  <video
+    id="cameraVideo"
+    autoplay
+    playsinline
+    muted>
+  </video>
 
-      </div>
+  <canvas
+    id="cameraCanvas">
+  </canvas>
 
+  <div class="scanner-frame">
+
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
+
+  </div>
+
+</div>
+
+
+<div
+  id="cameraStatus"
+  class="camera-status">
+
+  Kamera belum aktif
+
+</div>
+
+
+<div class="scanner-buttons">
+
+  <button
+    id="startCameraBtn"
+    class="primary-btn"
+    onclick="startCamera()">
+
+    📷 MULAI SCAN LJK
+
+  </button>
+
+  <button
+    id="stopCameraBtn"
+    class="secondary-btn"
+    onclick="stopCamera()"
+    style="display:none">
+
+    ⏹ STOP KAMERA
+
+  </button>
+
+</div>
+
+
+<div
+  id="omrStatus"
+  class="message">
+</div>
+
+
+<div
+  id="scanResult"
+  class="scan-result">
+</div>
 
       <!-- SIMULASI -->
 
@@ -334,6 +390,8 @@
 
 </div>
 
+
+<script async src="https://docs.opencv.org/4.x/opencv.js"></script>
 
 <script src="app.js"></script>
 
