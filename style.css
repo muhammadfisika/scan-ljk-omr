@@ -274,3 +274,134 @@ button {
   }
 
 }
+
+/* ==========================================
+   SCANNER OMR
+========================================== */
+
+.scanner-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 15px auto;
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#cameraVideo {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  object-fit: cover;
+  background: #000;
+}
+
+#cameraCanvas {
+  display: none;
+}
+
+.scanner-frame {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 8%;
+  bottom: 8%;
+  border: 3px solid white;
+  pointer-events: none;
+  border-radius: 5px;
+}
+
+.corner {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border-color: #00ff00;
+  border-style: solid;
+}
+
+.top-left {
+  left: -3px;
+  top: -3px;
+  border-width: 5px 0 0 5px;
+}
+
+.top-right {
+  right: -3px;
+  top: -3px;
+  border-width: 5px 5px 0 0;
+}
+
+.bottom-left {
+  left: -3px;
+  bottom: -3px;
+  border-width: 0 0 5px 5px;
+}
+
+.bottom-right {
+  right: -3px;
+  bottom: -3px;
+  border-width: 0 5px 5px 0;
+}
+
+.camera-status {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.scanner-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.scanner-buttons button {
+  margin-top: 10px;
+}
+
+.omr-detected {
+  padding: 12px;
+  background: #edf7ed;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.omr-warning {
+  padding: 12px;
+  background: #fff7ed;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: #9a3412;
+}
+
+.omr-error {
+  padding: 12px;
+  background: #fff1f2;
+  border-radius: 8px;
+  color: #b91c1c;
+}
+
+.omr-success {
+  padding: 15px;
+  background: #ecfdf5;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+
+  .scanner-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  #cameraVideo {
+    min-height: 250px;
+  }
+
+}
+
+
+
